@@ -5,9 +5,10 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Pokkit Share',
-  description: 'Pokkit Share is a platform for players to share VGC Pokemon teams.',
-}
+	title: 'Pokkit Share',
+	description:
+		'Pokkit Share is a platform for players to share VGC Pokemon teams.',
+};
 
 export default function RootLayout({
 	children,
