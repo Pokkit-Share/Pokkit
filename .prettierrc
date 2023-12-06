@@ -8,5 +8,5 @@
 	"bracketSameLine": false,
 	"arrowParens": "always",
 	"printWidth": 80,
-  "jsxSingleQuote": true
+	"jsxSingleQuote": true
 }
