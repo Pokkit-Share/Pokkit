@@ -1,22 +1,23 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Pokkit Share',
-  description: 'Pokkit Share is a platform for players to share VGC Pokemon teams.',
-}
+	title: 'Pokkit Share',
+	description:
+		'Pokkit Share is a platform for players to share VGC Pokemon teams.',
+};
 
 export default function RootLayout({
-  children,
+	children,
 }: {
-  children: React.ReactNode
+	children: React.ReactNode;
 }) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
-  )
+	return (
+		<html lang='en'>
+			<body className={inter.className}>{children}</body>
+		</html>
+	);
 }
