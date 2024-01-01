@@ -1,17 +1,16 @@
 import 'server-only';
-import { neon } from '@neondatabase/serverless';
+
+import { connectDB } from '@/lib/database';
 
 export async function GET(request: Request) {
-  const dbUrl = process.env.DB_URL;
-  try {
-    if (!dbUrl) throw new Error("DB Url not found");
-    const sql = neon(dbUrl);
-    console.log("db connected!")
+	try {
+		const sql = await connectDB();
+		console.log('db connected!');
 
-    const response = await sql`SELECT version()`;
-    return Response.json(response)
-  } catch (err) {
-    console.log(err)
-    return Response.json({msg: "err"})
-  }
+		const response = await sql`SELECT version()`;
+		return Response.json(response);
+	} catch (err) {
+		console.log(err);
+		return Response.json({ msg: 'err' });
+	}
 }
