@@ -1,0 +1,5 @@
+{
+  "migrations-schema": "migrations",
+  "create-migrations-schema": true,
+  "migrations-table": "pgmigrations"
+}

@@ -7,7 +7,10 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"format": "npx prettier . --write"
+		"format": "npx prettier . --write",
+		"migrate": "node-pg-migrate",
+		"migrate-up": "node-pg-migrate up --config-file ./migrate-config.json",
+		"migrate-down": "node-pg-migrate down --config-file ./migrate-config.json"
 	},
 	"dependencies": {
 		"@neondatabase/serverless": "^0.6.1",
@@ -15,6 +18,7 @@
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.0.0",
 		"next": "14.0.3",
+		"node-pg-migrate": "^6.2.2",
 		"react": "^18",
 		"react-dom": "^18",
 		"server-only": "^0.0.1",
