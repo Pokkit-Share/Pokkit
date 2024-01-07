@@ -4,8 +4,9 @@
 
 @layer base {
 	:root {
-		--background: 0 0% 100%;
-		--foreground: 222.2 84% 4.9%;
+		--background: 0, 0%, 95%;
+		--background-2: 0, 0%, 89%;
+		--foreground: 0, 0%, 24%;
 
 		--card: 0 0% 100%;
 		--card-foreground: 222.2 84% 4.9%;
@@ -15,7 +16,6 @@
 
 		--primary: 7, 73%, 55%;
 		--primary-hover: 7, 100%, 65%;
-		/* --primary: 222.2 47.4% 11.2%; */
 		--primary-foreground: 210 40% 98%;
 
 		--secondary: 210 40% 96.1%;
@@ -38,8 +38,9 @@
 	}
 
 	.dark {
-		--background: 222.2 84% 4.9%;
-		--foreground: 210 40% 98%;
+		--background: 0, 0%, 15%;
+		--background-2: 0, 0%, 11%;
+		--foreground: 0, 0%, 85%;
 
 		--card: 222.2 84% 4.9%;
 		--card-foreground: 210 40% 98%;
