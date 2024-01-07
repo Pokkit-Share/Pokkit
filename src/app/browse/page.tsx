@@ -1,9 +1,15 @@
+import type { Metadata } from 'next';
 import { getBrowse } from '@/lib/db';
+
+export const metadata: Metadata = {
+	title: 'Browse | Pokkit Share',
+	description: 'Browse Pokemon VGC teams on Pokkit',
+};
 
 export default async function Page() {
 	try {
 		const data = await getBrowse();
-    console.log(data)
+		console.log(data);
 	} catch (err) {
 		console.log(err);
 	}

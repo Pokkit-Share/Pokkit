@@ -1,4 +1,10 @@
+import type { Metadata } from 'next';
 import { getView } from '@/lib/db';
+
+export const metadata: Metadata = {
+	title: 'Pokkit Share',
+	description: 'Description',
+};
 
 export default async function Page({ params }: { params: { slug: string } }) {
 	try {
