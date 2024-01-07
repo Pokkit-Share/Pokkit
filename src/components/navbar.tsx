@@ -1,4 +1,5 @@
 import { Button, buttonVariants } from './ui/button';
+import { MenuSquare, Menu } from 'lucide-react';
 
 export default function Navbar() {
 	return (
@@ -19,7 +20,7 @@ export default function Navbar() {
 						Login
 					</a>
 				</Button>
-				<button className='block sm:hidden ml-auto'>Menu</button>
+				<button className='sm:hidden ml-auto block text-primary'><Menu size={36} className='fill-current' /></button>
 			</nav>
 		</header>
 	);
