@@ -3,6 +3,7 @@ package session
 import (
 	"crypto/rand"
 	"crypto/sha256"
+	"crypto/subtle"
 	"errors"
 	"strings"
 	"time"
@@ -82,8 +83,8 @@ func (sm *SessionManager) ValidateSessionToken(token string) (Session, error) {
 		return Session{}, err
 	}
 
-	validSecret := constantTimeEqual(tokenSecretHash[:], session.secretHash[:])
-	if !validSecret {
+	isValidSecret := subtle.ConstantTimeCompare(tokenSecretHash[:], session.secretHash[:]) == 1
+	if !isValidSecret {
 		return Session{}, nil
 	}
 
@@ -126,15 +127,4 @@ func generateSecureRandomString() (string, error) {
 	}
 
 	return string(id), nil
-}
-
-func constantTimeEqual(a, b []byte) bool {
-	if len(a) != len(b) {
-		return false
-	}
-	c := 0
-	for i := range a {
-		c |= int(a[i] ^ b[i])
-	}
-	return c == 0
 }
