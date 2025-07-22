@@ -1,0 +1,71 @@
+.main-container {
+	max-width: 72rem;
+	margin: 0 auto;
+	padding: 0 1rem;
+	columns: 24rem;
+}
+
+.thread-container {
+	background-color: hsl(var(--background-color));
+	border-radius: 0.75rem;
+	break-inside: avoid;
+	page-break-inside: avoid;
+	-webkit-column-break-inside: avoid;
+}
+
+.thread-pokemon-grid {
+	display: grid;
+	grid-template-columns: repeat(6, minmax(0, 1fr));
+	gap: 0.5rem;
+	width: fit-content;
+	margin: 0 auto;
+	/* margin-bottom: 1rem; */
+}
+
+.thread-pokemon-container {
+	position: relative;
+	width: 3.5rem;
+	height: 3.5rem;
+}
+
+.thread-pokemon-circle {
+	background-color: hsl(var(--primary-color));
+	position: absolute;
+	border-radius: 100%;
+	inset: 0px;
+}
+
+.thread-pokemon-image {
+	position: absolute;
+	inset: 0px;
+}
+
+.thread-title {
+	font-weight: 700;
+	font-size: var(--text-lg);
+	margin-top: 1rem;
+}
+
+.thread-title a {
+	color: hsl(var(--primary-color));
+}
+
+.thread-title a:hover {
+	color: hsl(var(--primary-color-hover));
+}
+
+.thread-date {
+	font-weight: var(--font-weight-light);
+	font-size: var(--text-sm);
+}
+
+.thread-description {
+}
+
+.thread-no-description {
+	font-weight: var(--font-weight-light);
+	font-size: var(--text-sm);
+}
+
+.thread-footer {
+}
