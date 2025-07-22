@@ -1,0 +1,40 @@
+/* Colors */
+:where(html) {
+	--background-color: 0 0% 95%;
+	--background-2: 0, 0%, 89%;
+	--foreground: 0, 0%, 24%;
+
+	--primary-color: 7, 73%, 55%;
+	--primary-color-hover: 7, 100%, 65%;
+	--primary-color-foreground: 210 40% 98%;
+}
+
+/* Font */
+:where(html) {
+	--text-xs: 0.75rem;
+	--text-sm: 0.875rem;
+	--text-md: 1rem;
+	--text-lg: 1.125rem;
+
+	--font-weight-thin: 100;
+	--font-weight-light: 300;
+	--font-weight-regular: 400;
+	--font-weight-medium: 500;
+	--font-weight-semibold: 600;
+	--font-weight-bold: 700;
+}
+
+/* Basic Styling */
+:where(html) {
+	font-family: 'Lato', sans-serif;
+	background-color: hsl(var(--background-color));
+	color: hsl(var(--foreground));
+}
+body {
+	background-image: url('/dragapult.png');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	min-height: 100vh;
+	min-height: 100dvh;
+}

@@ -1,0 +1,7 @@
+:where(body) {
+	margin: 0px;
+}
+
+:where(a) {
+	text-decoration: none;
+}
