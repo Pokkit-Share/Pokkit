@@ -11,6 +11,7 @@
 	break-inside: avoid;
 	page-break-inside: avoid;
 	-webkit-column-break-inside: avoid;
+  border: 1px solid hsl(var(--primary-color)); 
 }
 
 .thread-pokemon-grid {

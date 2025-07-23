@@ -10,6 +10,7 @@ export default defineConfig({
 			'@': path.resolve(__dirname, './src'),
 			'@hooks': path.resolve(__dirname, './src/hooks'),
 			'@components': path.resolve(__dirname, './src/components'),
+			'@queries': path.resolve(__dirname, './src/queries'),
 		},
 	},
 	plugins: [tanstackRouter({ target: 'react', autoCodeSplitting: true }), react()],
