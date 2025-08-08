@@ -1,0 +1,25 @@
+.navbar-header {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	background-color: hsl(var(--background-color));
+}
+
+.navbar-nav {
+	display: flex;
+	gap: 2rem;
+	margin: auto;
+	max-width: 84rem;
+	align-items: center;
+	padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+	font-size: var(--text-lg);
+	font-weight: var(--font-weight-extrabold);
+	color: hsl(var(--primary-color));
+}
+
+.navbar-brand:hover {
+	color: hsl(var(--primary-color-hover));
+}
