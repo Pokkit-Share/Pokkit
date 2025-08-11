@@ -3,6 +3,7 @@
 	margin: 0 auto;
 	padding: 0 1rem;
 	columns: 24rem;
+	padding-top: 2rem;
 }
 
 .thread-container {
@@ -11,7 +12,9 @@
 	break-inside: avoid;
 	page-break-inside: avoid;
 	-webkit-column-break-inside: avoid;
-  border: 1px solid hsl(var(--primary-color)); 
+	border: 1px solid hsl(var(--primary-color));
+	padding: 1rem 2rem;
+	margin-bottom: 1rem;
 }
 
 .thread-pokemon-grid {
@@ -69,4 +72,5 @@
 }
 
 .thread-footer {
+	font-weight: var(--font-weight-light);
 }

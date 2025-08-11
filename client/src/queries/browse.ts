@@ -5,7 +5,7 @@ export const BrowseData = type({
 	title: type.string,
 	rental_code: type.string,
 	description: type.string,
-	updated_at: type.number,
+	updated_at: type.Date,
 	username: type.string,
 	commentCount: type.number,
 	upvoteCount: type.number,
@@ -33,7 +33,7 @@ const testData: BrowseData = [
 		rental_code: 'test',
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam gravida metus eu tincidunt aliquet. Fusce vestibulum ligula in lorem posuere pellentesque. Ut venenatis erat quis metus auctor, id tempor neque pulvinar. Integer sem sem, luctus quis turpis et, aliquet euismod nunc. Nam fermentum in purus sed gravida. Nam sit amet dignissim ipsum. Morbi eu velit ultrices, elementum mauris vel, tincidunt sem. Donec dictum augue vel dolor rhoncus interdum. Maecenas viverra venenatis pulvinar. Nullam massa quam, commodo nec leo vel, congue cursus lacus.',
-		updated_at: 0,
+		updated_at: new Date(Date.now()),
 		username: 'username',
 		commentCount: 2,
 		upvoteCount: 3,
@@ -44,7 +44,7 @@ const testData: BrowseData = [
 		title: 'test2',
 		rental_code: 'test2',
 		description: '',
-		updated_at: 1,
+		updated_at: new Date(Date.now()),
 		username: 'username2',
 		commentCount: 4,
 		upvoteCount: 6,
@@ -55,7 +55,7 @@ const testData: BrowseData = [
 		title: 'test3',
 		rental_code: 'test2',
 		description: '',
-		updated_at: 1,
+		updated_at: new Date(Date.now()),
 		username: 'username2',
 		commentCount: 4,
 		upvoteCount: 6,
@@ -67,7 +67,7 @@ const testData: BrowseData = [
 		rental_code: 'test2',
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam gravida metus eu tincidunt aliquet. Fusce vestibulum ligula in lorem posuere pellentesque. Ut venenatis erat quis metus auctor, id tempor neque pulvinar. Integer sem sem, luctus quis turpis et, aliquet euismod nunc. Nam fermentum in purus sed gravida. Nam sit amet dignissim ipsum. Morbi eu velit ultrices, elementum mauris vel, tincidunt sem. Donec dictum augue vel dolor rhoncus interdum. Maecenas viverra venenatis pulvinar. Nullam massa quam, commodo nec leo vel, congue cursus lacus.',
-		updated_at: 1,
+		updated_at: new Date(Date.now()),
 		username: 'username2',
 		commentCount: 4,
 		upvoteCount: 6,
@@ -75,7 +75,7 @@ const testData: BrowseData = [
 	},
 ];
 
-export function getBrowse(): Promise<BrowseData> {
+function getMockData(): Promise<BrowseData>{
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
 			const out = BrowseData.array()(testData);
@@ -84,7 +84,11 @@ export function getBrowse(): Promise<BrowseData> {
 			} else {
 				resolve(testData);
 			}
-		}, 1000);
+		}, 1500);
 	});
+}
+
+export function getBrowse(): Promise<BrowseData> {
+	return getMockData()
 }
 
