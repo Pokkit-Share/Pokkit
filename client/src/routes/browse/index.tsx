@@ -1,11 +1,19 @@
 import { Await, createFileRoute} from '@tanstack/react-router';
+import { type } from 'arktype';
 
 import { BrowseData, getBrowse } from '@queries/browse';
 import Loading from '@components/loading';
 import './browse.css';
 import { formatDate } from '@/utils/date';
 
+const browseSearchSchema = type({
+	pokemon: "string[]?",
+	generation: "string?",
+	regulation: "string?",
+})
+
 export const Route = createFileRoute('/browse/')({
+	validateSearch: browseSearchSchema,
 	component: RouteComponent,
 	loader: async () => {
 		const data = getBrowse();
@@ -17,6 +25,7 @@ export const Route = createFileRoute('/browse/')({
 
 function RouteComponent() {
 	const { deferredSlowData } = Route.useLoaderData();
+	const { pokemon, generation, regulation } = Route.useSearch();
 	return (
 		<Await promise={deferredSlowData} fallback={<LoadingComponent />}>
 		{(data) => {
