@@ -5,9 +5,9 @@ export default function Navbar() {
 	return (
 		<header className='navbar-header'>
 			<nav className='navbar-nav'>
-				<a className='navbar-brand' href='/'>
+				<Link to='/' className='navbar-brand'>
 					Pokkit
-				</a>
+				</Link>
 				<Link to='/'>Home</Link>
 				<Link to='/browse'>Browse</Link>
 				<Link to='/create'>Create</Link>

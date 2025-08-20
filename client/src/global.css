@@ -1,6 +1,6 @@
 /* Colors */
 :where(html) {
-	--background-color: 0 0% 95%;
+	--background-color: 0, 0%, 95%;
 	--background-2: 0, 0%, 89%;
 	--foreground: 0, 0%, 24%;
 

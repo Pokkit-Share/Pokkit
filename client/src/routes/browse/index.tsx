@@ -5,6 +5,8 @@ import { BrowseData, getBrowse } from '@queries/browse';
 import Loading from '@components/loading';
 import './browse.css';
 import { formatDate } from '@/utils/date';
+// import { Dialog } from 'radix-ui';
+import { Dialog } from '@components/dialog'
 
 const browseSearchSchema = type({
 	pokemon: "string[]?",
@@ -26,36 +28,53 @@ export const Route = createFileRoute('/browse/')({
 function RouteComponent() {
 	const { deferredSlowData } = Route.useLoaderData();
 	const { pokemon, generation, regulation } = Route.useSearch();
+
+
 	return (
+		// <Dialog.Root>
+		// <Dialog.Portal>
+		// 	<Dialog.Overlay className="dialog-overlay" />
+		// 	<Dialog.Content className="dialog-content">
+		// 		<Dialog.Title>
+		// 			Filter	
+		// 		</Dialog.Title>
+		// 		Content
+		// 	</Dialog.Content>
+		// </Dialog.Portal>
+		<main className='main-container'>
+		<Dialog.Root side="bottom">
+			<Dialog.Trigger asChild>
+				<button>Filter</button>
+			</Dialog.Trigger>
+			<Dialog.Content className="hello">
+				<Dialog.Title>
+					Filter
+				</Dialog.Title>
+				Content
+			</Dialog.Content>
+		</Dialog.Root>
 		<Await promise={deferredSlowData} fallback={<LoadingComponent />}>
 		{(data) => {
 			return (
-				<main className='main-container'>
+				<>
 				{data.map((item) => {
 					return (
 						<ThreadCard
 						key={item.id}
 						{...item}
-						// id={item.id}
-						// team={item.team}
-						// title={item.title}
-						// description={item.description}
-						// updated_at={item.updated_at}
-						// upvoteCount={item.upvoteCount}
-						// commentCount={item.commentCount}
-						// username={item.username}
 						/>
 					);
 				})}
-				</main>
+				</>
 			);
 		}}
 		</Await>
+		</main>
 	);
 }
 
 function LoadingComponent() {
-	return <main className='main-container'><Loading /></main>;
+	return <Loading />;
 }
 
 function ThreadCard(props: typeof BrowseData.infer) {
@@ -81,7 +100,7 @@ function ThreadCard(props: typeof BrowseData.infer) {
 		</div>
 
 		<h3 className='thread-title'>
-			<a href={`/view/${id}`}>{title}</a>
+		<a href={`/view/${id}`}>{title}</a>
 		</h3>
 
 		<p className='thread-date'>Last Updated: {formatDate(updated_at)}</p>
@@ -93,7 +112,7 @@ function ThreadCard(props: typeof BrowseData.infer) {
 		)}
 
 		<div className='thread-footer'>
-			{upvoteCount}
+		{upvoteCount}
 		</div>
 		</section>
 	);

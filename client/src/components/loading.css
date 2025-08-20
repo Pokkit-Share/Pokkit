@@ -1,0 +1,27 @@
+.loader {
+	position: relative;
+	overflow: hidden;
+	display: block;
+	border-radius: 8px;
+	width: 100%;
+	border: 2px solid red;
+}
+
+.loader-track {
+	width: 200%;
+	display: flex;
+	animation: scroll 2000ms linear infinite;
+	border: 3px solid blue;
+}
+
+.loader-frame {
+	object-fit: contain;
+	height: 4rem;
+	pointer-events: none;
+	user-select: none;
+}
+
+@keyframes scroll {
+	from { transform: translateX(0); }
+	to { transform: translateX(-50%); }
+}
