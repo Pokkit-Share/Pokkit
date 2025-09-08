@@ -4,6 +4,7 @@
 
 .dialog-overlay {
 	background-color: hsla(var(--foreground), 50%);
+	z-index: 20;
 	position: fixed;
 	inset: 0;
 	animation: overlay-show 250ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -26,6 +27,7 @@
 .dialog-content {
 	background-color: hsl(var(--background-color));
 	position: fixed;
+	z-index: 30;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);

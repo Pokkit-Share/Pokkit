@@ -1,12 +1,14 @@
 import { Await, createFileRoute} from '@tanstack/react-router';
 import { type } from 'arktype';
+import { Label, Select } from 'radix-ui';
 
 import { BrowseData, getBrowse } from '@queries/browse';
-import Loading from '@components/loading';
-import './browse.css';
 import { formatDate } from '@/utils/date';
-// import { Dialog } from 'radix-ui';
+
+import './browse.css';
+import Loading from '@components/loading';
 import { Dialog } from '@components/dialog'
+import Button from '@/components/button';
 
 const browseSearchSchema = type({
 	pokemon: "string[]?",
@@ -29,30 +31,19 @@ function RouteComponent() {
 	const { deferredSlowData } = Route.useLoaderData();
 	const { pokemon, generation, regulation } = Route.useSearch();
 
-
 	return (
-		// <Dialog.Root>
-		// <Dialog.Portal>
-		// 	<Dialog.Overlay className="dialog-overlay" />
-		// 	<Dialog.Content className="dialog-content">
-		// 		<Dialog.Title>
-		// 			Filter	
-		// 		</Dialog.Title>
-		// 		Content
-		// 	</Dialog.Content>
-		// </Dialog.Portal>
 		<main className='main-container'>
 		<Dialog.Root side="bottom">
 			<Dialog.Trigger asChild>
 				<button>Filter</button>
 			</Dialog.Trigger>
-			<Dialog.Content className="hello">
+			<Dialog.Content className="">
 				<Dialog.Title>
 					Filter
 				</Dialog.Title>
-				Content
 			</Dialog.Content>
 		</Dialog.Root>
+
 		<Await promise={deferredSlowData} fallback={<LoadingComponent />}>
 		{(data) => {
 			return (
