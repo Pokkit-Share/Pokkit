@@ -41,6 +41,35 @@ function RouteComponent() {
 				<Dialog.Title>
 					Filter
 				</Dialog.Title>
+				<SelectComponent
+					items={["date", "title", "upvotes", "views"]}
+					label="Sort By"
+					name="sort"
+					defaultValue='date'
+				/>
+				<SelectComponent
+					items={["pokemon scarlet & violet"]}
+					label="Series"
+					name="series"
+				/>
+				<SelectComponent
+					items={["regulation b"]}
+					label="Format"
+					name="format"
+				/>
+				<SelectComponent
+					items={["any"]}
+					label="Has Rental"
+					name="hasRental"
+					defaultValue='any'
+				/>
+				<SelectComponent
+					items={["any"]}
+					label="Has Guide"
+					name="hasGuide"
+					defaultValue='any'
+				/>
+				<Button wide={true} style={{marginTop: "0.75rem"}}>Search</Button>
 			</Dialog.Content>
 		</Dialog.Root>
 
@@ -66,6 +95,42 @@ function RouteComponent() {
 
 function LoadingComponent() {
 	return <Loading />;
+}
+
+type SelectComponentProps = {
+	items: string[];
+	label: string;
+	name: string;
+	defaultValue?: string
+}
+
+function SelectComponent(props: SelectComponentProps) {
+	const { items, label, name, defaultValue } = props
+	return (
+		<>
+			<Label.Root className="label" htmlFor={name}>
+				{label}:
+			</Label.Root>
+			<Select.Root name={name} defaultValue={defaultValue || ''}>
+				<Select.Trigger id={name} className='select-trigger' aria-label={label}>
+					<Select.Value placeholder="Select..." />
+				</Select.Trigger>
+				<Select.Portal>
+					<Select.Content className='select-content' position='popper' sideOffset={5}>
+						<Select.Viewport className='select-viewport'>
+							{items.map((item) => {
+								return (
+									<Select.Item className='select-item' key={item} value={item}>
+										<Select.ItemText>{item}</Select.ItemText>
+									</Select.Item>
+								)
+							})}
+						</Select.Viewport>
+					</Select.Content>
+				</Select.Portal>
+			</Select.Root>
+		</>
+	)
 }
 
 function ThreadCard(props: typeof BrowseData.infer) {

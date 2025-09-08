@@ -3,6 +3,7 @@
 	--background-color: 0, 0%, 95%;
 	--background-2: 0, 0%, 89%;
 	--foreground: 0, 0%, 24%;
+	--foreground-faint: 0,0%, 48%;
 
 	--primary-color: 7, 73%, 55%;
 	--primary-color-hover: 7, 100%, 65%;
@@ -38,4 +39,8 @@ body {
 	background-size: cover;
 	min-height: 100vh;
 	min-height: 100dvh;
+}
+button {
+	font: inherit;
+	cursor: pointer;
 }
