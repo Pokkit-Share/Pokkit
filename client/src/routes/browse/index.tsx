@@ -1,6 +1,6 @@
 import { Await, createFileRoute} from '@tanstack/react-router';
 import { type } from 'arktype';
-import { Label, Select } from 'radix-ui';
+import { Label, Popover, Select } from 'radix-ui';
 
 import { BrowseData, getBrowse } from '@queries/browse';
 import { formatDate } from '@/utils/date';
@@ -9,6 +9,9 @@ import './browse.css';
 import Loading from '@components/loading';
 import { Dialog } from '@components/dialog'
 import Button from '@/components/button';
+import { useState } from 'react';
+import { Command } from 'cmdk';
+import { pokemonSpecies } from '@/utils/pokemon';
 
 const browseSearchSchema = type({
 	pokemon: "string[]?",
@@ -30,6 +33,15 @@ export const Route = createFileRoute('/browse/')({
 function RouteComponent() {
 	const { deferredSlowData } = Route.useLoaderData();
 	const { pokemon, generation, regulation } = Route.useSearch();
+	const [selectedPokemon, setSelectedPokemon] = useState<string[]>([]);
+
+	function toggleSelection(item: string) {
+		if (selectedPokemon.includes(item)){
+			setSelectedPokemon(selectedPokemon.filter((p) => p !== item))
+		} else {
+			setSelectedPokemon([...selectedPokemon, item])
+		}
+	}
 
 	return (
 		<main className='main-container'>
@@ -57,6 +69,17 @@ function RouteComponent() {
 					label="Format"
 					name="format"
 				/>
+				<Label.Root className="label" htmlFor='pokemon'>
+					Includes Pokemon:
+				</Label.Root>
+				<ul>
+					{selectedPokemon.map((item) => (
+						<li>
+							{item}
+						</li>
+					))}
+				</ul>
+				<ComboBoxComponent items={pokemonSpecies} onSelect={toggleSelection} />
 				<SelectComponent
 					items={["any"]}
 					label="Has Rental"
@@ -95,6 +118,48 @@ function RouteComponent() {
 
 function LoadingComponent() {
 	return <Loading />;
+}
+
+function ComboBoxComponent(props: { items:string[], onSelect:(item:string) => void }) {
+	const { items, onSelect } = props 
+	const [open, setOpen] = useState(false);
+	const [value, setValue] = useState('');
+	return (
+		<Popover.Root open={open} onOpenChange={setOpen}>
+			<Popover.Trigger asChild>
+				<Button className='combobox-trigger' wide={true}>
+					Select Pokemon
+				</Button>
+			</Popover.Trigger>
+
+			<Popover.Content className='combobox-content' align='start' sideOffset={5}>
+				<Command>
+					<Command.Input
+						placeholder='Type to search...'
+						className='combobox-input'
+					/>
+					<Command.List className='combobox-list'>
+						<Command.Empty className='combobox-empty'>
+							No results found.
+						</Command.Empty>
+						<Command.Group>
+							{items.map((item) => {
+								return (
+									<Command.Item
+										key={item}
+										value={item}
+										onSelect={() => {onSelect(item)}}
+									>
+										{item}
+									</Command.Item>
+								)
+							})}
+						</Command.Group>
+					</Command.List>
+				</Command>
+			</Popover.Content>
+		</Popover.Root>
+	)
 }
 
 type SelectComponentProps = {

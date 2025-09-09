@@ -119,3 +119,41 @@
 	background-color: hsl(var(--primary-color));
 	color: hsl(var(--background-color));
 }
+
+[cmdk-list] {
+	max-height: 20rem;
+	overflow-y: scroll;
+	margin-top: 1rem;
+}
+
+[cmdk-item] {
+	padding: 0.5rem 1rem;
+	cursor: pointer;
+	border-radius: 6px;
+}
+
+[cmdk-item]:hover {
+	background-color: hsl(var(--primary-color));
+	color: hsl(var(--background-color));
+}
+
+.combobox-content {
+	background-color: hsl(var(--background-color));
+	width: var(--radix-popover-trigger-width);
+	box-shadow: 0px 4px 16px rgba(20,20,20,0.2);
+	padding: 1.5rem 1rem;
+	box-sizing: border-box;
+	overflow: hidden;
+	border-radius: 6px;
+}
+
+.combobox-input {
+	background-color: hsl(var(--background-2));
+	border-radius: 6px;
+	width: 100%;
+	padding: 1rem;
+	box-sizing: border-box;
+	border: none;
+	font-family: inherit;
+	font-size: inherit;
+}
