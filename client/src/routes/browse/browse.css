@@ -1,20 +1,21 @@
 .main-container {
 	max-width: 72rem;
 	margin: 0 auto;
-	padding: 0 1rem;
+	padding: 0 var(--p-4);
 	columns: 24rem;
-	padding-top: 2rem;
+	padding-top: var(--p-8);
 }
 
 .thread-container {
 	background-color: hsl(var(--background-color));
-	border-radius: 0.75rem;
+	/* border-radius: 0.75rem; */
+	border-radius: var(--br-2);
 	break-inside: avoid;
 	page-break-inside: avoid;
 	-webkit-column-break-inside: avoid;
 	border: 1px solid hsl(var(--primary-color));
-	padding: 1rem 2rem;
-	margin-bottom: 1rem;
+	padding: var(--p-4) var(--p-8);
+	margin-bottom: var(--m-4);
 }
 
 .thread-pokemon-grid {
@@ -47,7 +48,7 @@
 .thread-title {
 	font-weight: 700;
 	font-size: var(--text-lg);
-	margin-top: 1rem;
+	margin-top: var(--m-4);
 }
 
 .thread-title a {
@@ -77,7 +78,7 @@
 
 .label {
 	display: block;
-	margin: 0.5rem 0;
+	margin: var(--m-2) 0;
 }
 
 .select-trigger {
@@ -85,10 +86,10 @@
 	display: block;
 	width: 100%;
 	text-align: left;
-	padding: 0.75rem 1.5rem;
-	border-radius: 6px;
+	padding: var(--p-3) var(--p-6);
+	border-radius: var(--br-1);
 	text-transform: capitalize;
-	margin-bottom: 1rem;
+	margin-bottom: var(--m-4);
 }
 
 .select-trigger[data-placeholder]{
@@ -99,8 +100,8 @@
 	overflow: hidden;
 	background-color: hsl(var(--background-color));
 	z-index: 40;
-	border-radius: 6px;
-	box-shadow: 0px 4px 16px rgba(20,20,20,0.2);
+	border-radius: var(--br-1);
+	box-shadow: var(--shadow-1);
 }
 
 .select-viewport {
@@ -109,7 +110,7 @@
 
 .select-item {
 	text-transform: capitalize;
-	padding: 0.75rem 1.5rem;
+	padding: var(--p-3) var(--p-6);
 	width: 100%;
 	text-align: left;
 	cursor: pointer;
@@ -123,13 +124,13 @@
 [cmdk-list] {
 	max-height: 20rem;
 	overflow-y: scroll;
-	margin-top: 1rem;
+	margin-top: var(--m-4);
 }
 
 [cmdk-item] {
-	padding: 0.5rem 1rem;
+	padding: var(--p-2) var(--p-4);
 	cursor: pointer;
-	border-radius: 6px;
+	border-radius: var(--br-1);
 }
 
 [cmdk-item]:hover {
@@ -140,20 +141,20 @@
 .combobox-content {
 	background-color: hsl(var(--background-color));
 	width: var(--radix-popover-trigger-width);
-	box-shadow: 0px 4px 16px rgba(20,20,20,0.2);
-	padding: 1.5rem 1rem;
+	box-shadow: var(--shadow-1);
+	padding: var(--p-6) var(--p-4);
 	box-sizing: border-box;
 	overflow: hidden;
-	border-radius: 6px;
+	border-radius: var(--br-1);
 }
 
 .combobox-input {
 	background-color: hsl(var(--background-2));
-	border-radius: 6px;
 	width: 100%;
-	padding: 1rem;
+	padding: var(--p-3) var(--p-4);
 	box-sizing: border-box;
 	border: none;
 	font-family: inherit;
 	font-size: inherit;
+	border-radius: var(--br-1);
 }

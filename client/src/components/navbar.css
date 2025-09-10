@@ -11,7 +11,7 @@
 	margin: auto;
 	max-width: 84rem;
 	align-items: center;
-	padding: 0.5rem 1rem;
+	padding: var(--p-2) var(--p-4);
 }
 
 .navbar-brand {

@@ -26,6 +26,40 @@
 	--font-weight-extrabold: 900;
 }
 
+/* Spacings */
+:where(html) {
+	/* Padding */
+	--p-1: 0.25rem;
+	--p-2: 0.5rem;
+	--p-3: 0.75rem;
+	--p-4: 1rem;
+	--p-5: 1.25rem;
+	--p-6: 1.5rem;
+	--p-7: 1.75rem;
+	--p-8: 2rem;
+
+	/* Margin */
+	--m-1: 0.25rem;
+	--m-2: 0.5rem;
+	--m-3: 0.75rem;
+	--m-4: 1rem;
+	--m-5: 1.25rem;
+	--m-6: 1.5rem;
+	--m-7: 1.75rem;
+	--m-8: 2rem;
+}
+
+/* Border Radius */
+:where(html) {
+	--br-1: 6px;
+	--br-2: 12px;
+}
+
+/* Box Shadow */
+:where(html) {
+	--shadow-1: 0px 4px 16px rgba(20,20,20,0.2);
+}
+
 /* Basic Styling */
 :where(html) {
 	font-family: 'Lato', sans-serif;
@@ -43,4 +77,11 @@ body {
 button {
 	font: inherit;
 	cursor: pointer;
+}
+ul {
+	padding-left: 0;
+	margin: 0;
+}
+li {
+	list-style: none;
 }
