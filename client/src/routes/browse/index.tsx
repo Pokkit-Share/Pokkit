@@ -218,11 +218,10 @@ function SelectComponent(props: SelectComponentProps) {
 
 function ThreadCard(props: typeof BrowseData.infer) {
 	const { id, team, title, description, updated_at, upvoteCount, commentCount, username } = props;
-	const tempTeam = [1, 2, 3, 4, 5, 6];
 	return (
 		<section className='thread-container'>
 		<div className='thread-pokemon-grid'>
-		{tempTeam.map((pokemon) => {
+		{team.map((pokemon) => {
 			return (
 				<div className='thread-pokemon-container'>
 				<div className='thread-pokemon-circle'></div>

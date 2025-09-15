@@ -37,7 +37,7 @@ const testData: BrowseData = [
 		username: 'username',
 		commentCount: 2,
 		upvoteCount: 3,
-		team: [],
+		team: ['1', '2', '3', '4', '5', '6'],
 	},
 	{
 		id: '2',
@@ -48,7 +48,7 @@ const testData: BrowseData = [
 		username: 'username2',
 		commentCount: 4,
 		upvoteCount: 6,
-		team: [],
+		team: ['1', '2', '3', '4', '5', '6'],
 	},
 	{
 		id: '3',
@@ -59,7 +59,7 @@ const testData: BrowseData = [
 		username: 'username2',
 		commentCount: 4,
 		upvoteCount: 6,
-		team: [],
+		team: ['7', '8', '9', '10', '11', '12'],
 	},
 	{
 		id: '4',
@@ -71,7 +71,7 @@ const testData: BrowseData = [
 		username: 'username2',
 		commentCount: 4,
 		upvoteCount: 6,
-		team: [],
+		team: ['100', '101', '103', '104', '105', '106'],
 	},
 ];
 
