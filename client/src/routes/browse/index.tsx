@@ -12,6 +12,7 @@ import Button from '@/components/button';
 import { useState } from 'react';
 import { Command } from 'cmdk';
 import { pokemonSpecies } from '@/utils/pokemon';
+import { ChevronDownIcon, X, CirclePlus, Search, ArrowBigUp, MessageCircle, MessageSquare, MessageSquareText, SlidersHorizontal } from 'lucide-react';
 
 const browseSearchSchema = type({
 	pokemon: "string[]?",
@@ -43,13 +44,22 @@ function RouteComponent() {
 		}
 	}
 
+	function removeSelection(item: string) {
+		setSelectedPokemon(selectedPokemon.filter((p) => p !== item))
+	}
+
 	return (
 		<main className='main-container'>
 		<Dialog.Root side="bottom">
-			<Dialog.Trigger asChild>
-				<button>Filter</button>
-			</Dialog.Trigger>
-			<Dialog.Content className="">
+			<div className='filter-block'>
+				<Dialog.Trigger asChild>
+					<Button className='filter-btn mb-4'>
+						<SlidersHorizontal size={18} />
+						Filter
+					</Button>
+				</Dialog.Trigger>
+			</div>
+			<Dialog.Content className="dialog-filter">
 				<Dialog.Title>
 					Filter
 				</Dialog.Title>
@@ -72,9 +82,10 @@ function RouteComponent() {
 				<Label.Root className="label" htmlFor='pokemon'>
 					Includes Pokemon:
 				</Label.Root>
-				<ul>
+				<ul className='selected-pokemon-ul'>
 					{selectedPokemon.map((item) => (
-						<li>
+						<li className='selected-pokemon-li' onClick={() => removeSelection(item)}>
+							<X size={18} />
 							{item}
 						</li>
 					))}
@@ -92,7 +103,10 @@ function RouteComponent() {
 					name="hasGuide"
 					defaultValue='any'
 				/>
-				<Button wide={true} style={{marginTop: "0.75rem"}}>Search</Button>
+				<Button className='combobox-search-btn mt-3' wide={true}>
+					<Search strokeWidth={2.5} size={18} />
+					Search
+				</Button>
 			</Dialog.Content>
 		</Dialog.Root>
 
@@ -128,6 +142,7 @@ function ComboBoxComponent(props: { items:string[], onSelect:(item:string) => vo
 		<Popover.Root open={open} onOpenChange={setOpen}>
 			<Popover.Trigger asChild>
 				<Button className='combobox-trigger' wide={true}>
+					<CirclePlus strokeWidth={2.25} size={18} />
 					Select Pokemon
 				</Button>
 			</Popover.Trigger>
@@ -179,6 +194,9 @@ function SelectComponent(props: SelectComponentProps) {
 			<Select.Root name={name} defaultValue={defaultValue || ''}>
 				<Select.Trigger id={name} className='select-trigger' aria-label={label}>
 					<Select.Value placeholder="Select..." />
+					<Select.Icon className='select-icon'>
+						<ChevronDownIcon size={18} />
+					</Select.Icon>
 				</Select.Trigger>
 				<Select.Portal>
 					<Select.Content className='select-content' position='popper' sideOffset={5}>
@@ -233,7 +251,10 @@ function ThreadCard(props: typeof BrowseData.infer) {
 		)}
 
 		<div className='thread-footer'>
-		{upvoteCount}
+			<ArrowBigUp className='mr-1' strokeWidth={1} />
+			{upvoteCount}
+			<MessageSquareText className='ml-4 mr-2' strokeWidth={1} />
+			{commentCount}
 		</div>
 		</section>
 	);

@@ -1,14 +1,17 @@
 .btn {
+	display: inline-flex;
 	padding: var(--p-3) var(--p-6);
 	border-radius: var(--br-1);
+	font-weight: var(--font-weight-semibold);
+	justify-content: center;
+	align-items: center;
+	gap: var(--m-1);
 }
 
 .btn-primary {
 	background-color: hsl(var(--primary-color));
 	color: hsl(var(--primary-color-foreground));
 }
-
-
 
 .btn-wide {
 	width: 100%;

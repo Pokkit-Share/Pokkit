@@ -83,13 +83,19 @@
 
 .select-trigger {
 	background-color: hsl(var(--background-2));
-	display: block;
+	display: flex;
+	/* align-items: center; */
 	width: 100%;
 	text-align: left;
 	padding: var(--p-3) var(--p-6);
 	border-radius: var(--br-1);
 	text-transform: capitalize;
 	margin-bottom: var(--m-4);
+}
+
+.select-icon {
+	margin-left: auto;
+	height: 18px;
 }
 
 .select-trigger[data-placeholder]{
@@ -146,6 +152,8 @@
 	box-sizing: border-box;
 	overflow: hidden;
 	border-radius: var(--br-1);
+	text-transform: capitalize;
+	max-height: 20rem;
 }
 
 .combobox-input {
