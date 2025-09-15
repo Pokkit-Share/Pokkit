@@ -35,7 +35,7 @@
 	width: 100%;
 	padding: var(--p-8);
 	border-radius: var(--br-1);
-	animation: content-show 250ms cubic-bezier(0.16, 1, 0.3, 1);
+	animation: content-show 350ms cubic-bezier(0, 0.85, 0.2, 1);
 }
 
 @keyframes overlay-show {
@@ -50,7 +50,7 @@
 @keyframes content-show {
 	from {
 		opacity: 0;
-		transform: translate(-50%, 150%);
+		transform: translate(-50%, -40%);
 	}
 	to {
 		opacity: 1;

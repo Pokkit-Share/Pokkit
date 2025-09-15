@@ -2,7 +2,7 @@
 	max-width: 72rem;
 	margin: 0 auto;
 	padding: 0 var(--p-4);
-	columns: 24rem;
+	columns: 2;
 	padding-top: var(--p-8);
 }
 
@@ -73,7 +73,21 @@
 }
 
 .thread-footer {
+	display: inline-flex;
+	align-items: center;
 	font-weight: var(--font-weight-light);
+	color: hsl(var(--primary-color));
+}
+
+.filter-block {
+	column-span: all;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.dialog-filter {
+	max-height: 80%;
+	overflow-y: auto;
 }
 
 .label {
@@ -165,4 +179,22 @@
 	font-family: inherit;
 	font-size: inherit;
 	border-radius: var(--br-1);
+}
+
+.selected-pokemon-ul {
+	display: flex;
+	gap: 1rem;
+	flex-direction: column;
+	margin-bottom: var(--m-4);
+}
+
+.selected-pokemon-li{
+	display: inline-flex;
+	align-items: center;
+	background-color: hsl(var(--background-2));
+	padding: var(--p-3) var(--p-4);
+	gap: 0.75rem;
+	cursor: pointer;
+	border-radius: var(--br-1);
+	text-transform: capitalize;
 }

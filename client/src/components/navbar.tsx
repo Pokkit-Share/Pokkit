@@ -8,7 +8,6 @@ export default function Navbar() {
 				<Link to='/' className='navbar-brand'>
 					Pokkit
 				</Link>
-				<Link to='/'>Home</Link>
 				<Link to='/browse'>Browse</Link>
 				<Link to='/create'>Create</Link>
 			</nav>

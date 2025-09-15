@@ -5,6 +5,7 @@
 	border-radius: var(--br-1);
 	width: 100%;
 	border: 2px solid red;
+	column-span: all;
 }
 
 .loader-track {
